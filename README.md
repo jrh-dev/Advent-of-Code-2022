@@ -6,8 +6,8 @@ Advent of Code is a series of programming puzzles released in December each year
 
 | Puzzle | Python | R |
 |--------|--------|---|
-| Day 1 | |  |
-| Day 2 | |  |
+| Day 1 | :star::star: | :star::star: |
+| Day 2 |  |  |
 | Day 3 |  |  |
 | Day 4 |  |  |
 | Day 5 |  |  | 

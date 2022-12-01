@@ -1,2 +1,4 @@
 #' @export
-box::use()
+box::use(
+  ./d01
+)
