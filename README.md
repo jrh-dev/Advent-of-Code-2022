@@ -2,7 +2,7 @@
 Advent of Code is a series of programming puzzles released in December each year that can be solved in any programming language. Correctly solving all of the puzzles earns 50 stars.
 
 ### Current Total Stars
-:star: x ***0***
+:star: x ***2***
 
 | Puzzle | Python | R |
 |--------|--------|---|
