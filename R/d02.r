@@ -1,4 +1,4 @@
-#' Solve day 1 AOC 2022
+#' Solve day 2 AOC 2022
 #'
 #' @param input puzzle input stripped of whitespace
 #' @param dict a named numeric vector specifying the
