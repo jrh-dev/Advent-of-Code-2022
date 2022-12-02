@@ -29,7 +29,7 @@ def solve(input, dict):
     return(sum([dict[i] for i in input]))
 
 # Part 1 Answer
-solve(input, opt_1)
+print(solve(input, opt_1))
 
 # Part 2 Answer
-solve(input, opt_2)
+print(solve(input, opt_2))

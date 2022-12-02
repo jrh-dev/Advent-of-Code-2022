@@ -1,8 +1,5 @@
-f = open("data/d01.txt", "r")
-
-input = f.read().split("\n")
-
-f.close()
+with open("data/d01.txt") as f:
+    input = f.read().split("\n")
 
 def solve(input,top):
     input = [int(x) if x not in '' else None for x in input]
