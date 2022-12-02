@@ -1,5 +1,5 @@
 #' @export
-d01 = function(input, top) {
+solve = function(input, top) {
   input = ._process(input)
   return(sum(sort(unlist(input), decreasing = TRUE)[1:top]))
 }
