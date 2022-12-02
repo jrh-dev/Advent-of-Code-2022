@@ -1,3 +1,9 @@
+#' Solve day 1 AOC 2022
+#'
+#' @param input puzzle input
+#' @param top integer specifying how many elements to include
+#'  in the returned sum.
+#' @return a numeric; the sum of the top n results
 #' @export
 solve = function(input, top) {
   input = ._process(input)
