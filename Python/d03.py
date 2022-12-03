@@ -6,7 +6,12 @@ low_let = string.ascii_lowercase
 with open("data/d03.txt") as f:
     input = f.read().split("\n")
 
-def solve_p1(data):
+def solve_p1(data:list[str]) -> int:
+    '''
+    Solves day 3 part 1 of AOC 2022
+    Parameters: data -- list[str]
+    Returns: value -- int
+    '''
     lhs = [s[0:len(s)//2] for s in data]
     rhs = [s[len(s)//2:len(s)] for s in data]
 
@@ -24,9 +29,14 @@ def solve_p1(data):
             else:
                 continue
 
-    return(it)
+    return it
 
 def solve_p2(data):
+    '''
+    Solves day 3 part 2 of AOC 2022
+    Parameters: data -- list[str]
+    Returns: value -- int
+    '''
     it = 0
 
     for ii in range(len(input)):
@@ -42,7 +52,7 @@ def solve_p2(data):
                         it += low_let.find(jj) + 1
                         break
 
-    return(it)
+    return it
 
 # Part 1 Answer
 print(solve_p1(input))

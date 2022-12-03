@@ -25,8 +25,13 @@ opt_2 = {
     "CZ": 7  #  scissors rock
 }
 
-def solve(input, dict):
-    return(sum([dict[i] for i in input]))
+def solve(input:list[str], dict:dict) -> int:
+    '''
+    Solves day 2 of AOC 2022
+    Parameters: input -- list[str], dict -- dict
+    Returns: value -- int
+    '''
+    return sum([dict[i] for i in input])
 
 # Part 1 Answer
 print(solve(input, opt_1))
