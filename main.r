@@ -47,3 +47,13 @@ R$d02$solve(d02_dat, opt_1)
 
 # Day 2 Part 2 answer
 R$d02$solve(d02_dat, opt_2)
+
+# Day 3
+d03_dat <- readLines("data/d03.txt", warn = FALSE)
+
+# Day 3 Part 1 answer
+R$d03$solve_p1(d03_dat)
+
+# Day 3 Part 1 answer
+R$d03$solve_p2(d03_dat)
+
