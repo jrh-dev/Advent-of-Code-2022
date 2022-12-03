@@ -6,10 +6,10 @@ low_let = string.ascii_lowercase
 with open("data/d03.txt") as f:
     input = f.read().split("\n")
 
-def solve_p1(data:list[str]) -> int:
+def solve_p1(data:list[str], up:list[str], low:list[str]) -> int:
     '''
     Solves day 3 part 1 of AOC 2022
-    Parameters: data -- list[str]
+    Parameters: data -- list[str], up -- list[str], low -- list[str]
     Returns: value -- int
     '''
     lhs = [s[0:len(s)//2] for s in data]
@@ -20,21 +20,21 @@ def solve_p1(data:list[str]) -> int:
     for ii in range(len(data)):
         for jj in range(len(lhs[ii])):
             if rhs[ii].find(lhs[ii][jj]) > -1:
-                if up_let.find(lhs[ii][jj]) > -1:
-                    it += up_let.find(lhs[ii][jj]) + 27
+                if up.find(lhs[ii][jj]) > -1:
+                    it += up.find(lhs[ii][jj]) + 27
                     break
                 else:
-                    it += low_let.find(lhs[ii][jj]) + 1
+                    it += low.find(lhs[ii][jj]) + 1
                     break
             else:
                 continue
 
     return it
 
-def solve_p2(data):
+def solve_p2(data, up:list[str], low:list[str]) -> int:
     '''
     Solves day 3 part 2 of AOC 2022
-    Parameters: data -- list[str]
+    Parameters: data -- list[str], up -- list[str], low -- list[str]
     Returns: value -- int
     '''
     it = 0
@@ -45,17 +45,17 @@ def solve_p2(data):
         else:
             for jj in input[ii]:
                 if (input[ii-1].find(jj) > -1) and (input[ii-2].find(jj) > -1):
-                    if up_let.find(jj) > -1:
-                        it += up_let.find(jj) + 27
+                    if up.find(jj) > -1:
+                        it += up.find(jj) + 27
                         break
                     else:
-                        it += low_let.find(jj) + 1
+                        it += low.find(jj) + 1
                         break
 
     return it
 
 # Part 1 Answer
-print(solve_p1(input))
+print(solve_p1(input, up_let, low_let))
 
 # Part 2 Answer
-print(solve_p2(input))
+print(solve_p2(input, up_let, low_let))

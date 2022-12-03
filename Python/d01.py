@@ -22,7 +22,7 @@ def solve(input:list[str], top:int) -> int:
     return sum(res[0:top])
 
 # Part 1 Answer
-print(solve(input,1))
+print(solve(input, 1))
 
 # Part 2 Answer
-print(solve(input,3))
+print(solve(input, 3))
