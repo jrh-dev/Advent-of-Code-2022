@@ -1,57 +1,30 @@
 with open("data/d04.txt") as f:
     input = f.read().split("\n")
 
-class clean:
-    def __init__(self, input):
-        self.unpack = self.__unpack(input)
-        self.contain = self.__contain(self.unpack)
-        self.overlap = self.__overlap(self.unpack)
+def between(x, y, z):
+    return x >= y and x <= z
 
-    def __unpack(self, inp):
-        out = [s.split(',') for s in input]
-        for ii in range(len(out)):
-            out[ii] = [s.split('-') for s in out[ii]]
-        return out
+con = 0
+ovr = 0
 
-    def __contain(self, inp):
-        cnt = 0
-        for ii in range(len(inp)):
-            lhsa = int(inp[ii][0][0])
-            lhsb = int(inp[ii][0][1])
-            rhsa = int(inp[ii][1][0])
-            rhsb = int(inp[ii][1][1])
 
-            if  ((self.__between(lhsa, rhsa, rhsb) and
-                 self.__between(lhsb, rhsa, rhsb)) or
-                 (self.__between(rhsa, lhsa, lhsb) and 
-                 self.__between(rhsb, lhsa, lhsb))):
-                 cnt += 1
-            else:
-                continue
-        return cnt
+for line in input:
+    l,r = line.split(",")
+    la, lb = l.split("-")
+    ra, rb = r.split("-")
 
-    def __overlap(self, inp):
-        cnt = 0
-        for ii in range(len(inp)):
-            lhsa = int(inp[ii][0][0])
-            lhsb = int(inp[ii][0][1])
-            rhsa = int(inp[ii][1][0])
-            rhsb = int(inp[ii][1][1])
+    p = [int(e) for e in [la,lb,ra,rb]]
 
-            if not(max(lhsa,lhsb) < min(rhsa,rhsb) or 
-                min(lhsa,lhsb) > max(rhsa,rhsb)):
-                cnt +=1
-            else:
-                continue
-        return cnt
+    if ((between(p[0], p[2], p[3]) and between(p[1], p[2], p[3])) or
+        (between(p[2], p[0], p[1]) and between(p[3], p[0], p[1]))):
+        con += 1
 
-    def __between(self, x, y, z):
-        return x >= y and x <= z
-
-camp_cleanup = clean(input)
+    if not(max(p[0],p[1]) < min(p[2],p[3]) or 
+            min(p[0],p[1]) > max(p[2],p[3])):
+        ovr += 1
 
 # Part 1 Answer
-print(camp_cleanup.contain)
+print(con)
 
 # Part 2 Answer
-print(camp_cleanup.overlap)
+print(ovr)
