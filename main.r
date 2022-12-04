@@ -54,6 +54,16 @@ d03_dat <- readLines("data/d03.txt", warn = FALSE)
 # Day 3 Part 1 answer
 R$d03$solve_p1(d03_dat)
 
-# Day 3 Part 1 answer
+# Day 3 Part 2 answer
 R$d03$solve_p2(d03_dat)
 
+# Day 4
+d04_dat = readLines("data/d04.txt", warn = FALSE)
+
+d04 = R$d04$solve(d04_dat)
+
+# Day 4 Part 1 answer
+print(d04$contain)
+
+# Day 4 Part 2 answer
+print(d04$overlap)
