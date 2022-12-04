@@ -4,7 +4,7 @@ with open("data/d04.txt") as f:
 class clean:
     def __init__(self, input):
         self.unpack = self.__unpack(input)
-        self.contain = self.__contain(self.unpack )
+        self.contain = self.__contain(self.unpack)
         self.overlap = self.__overlap(self.unpack)
 
     def __unpack(self, inp):
