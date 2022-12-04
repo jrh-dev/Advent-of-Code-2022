@@ -7,11 +7,9 @@ def between(x, y, z):
 con = 0
 ovr = 0
 
-
 for line in input:
-    l,r = line.split(",")
-    la, lb = l.split("-")
-    ra, rb = r.split("-")
+    la, lb = line.split(",")[0].split("-")
+    ra, rb = line.split(",")[1].split("-")
 
     p = [int(e) for e in [la,lb,ra,rb]]
 
