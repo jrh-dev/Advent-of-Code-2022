@@ -1,6 +1,16 @@
 # Advent Of Code 2022 - Solutions
 Advent of Code is a series of programming puzzles released in December each year that can be solved in any programming language. Correctly solving all of the puzzles earns 50 stars.
 
+This year I aiming to write solutions in R and python.
+
+## R
+I'm utilising my new favourite framework, the [***box***](https://github.com/klmr/box) package, to structure my R code. Modules for solving each puzzle reside within the `R` directory and the `main.r` script is ran to generate the answers for each day.
+
+Box provides a mechanism for "writing reusable, composable and modular R code", is much simpler to use than the R package system, and encourages a more pythonesque approach to imports, bringing in as little as required in terms of dependencies.
+
+## Python
+Python solutions are written as self contained scripts and can be found in the `python` directory.
+
 ### Current Total Stars
 :star: x ***4***
 
@@ -10,7 +20,7 @@ Advent of Code is a series of programming puzzles released in December each year
 | Day 2 | :star::star: | :star::star: |
 | Day 3 | :star::star: | :star::star: |
 | Day 4 | :star::star: | :star::star: |
-| Day 5 |  |  | 
+| Day 5 | :star::star: | :star::star: |
 | Day 6 |  |  | 
 | Day 7 |  |  | 
 | Day 8 |  |  | 
