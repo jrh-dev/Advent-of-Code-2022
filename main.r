@@ -5,7 +5,6 @@ box::use(
 options(scipen = 999)
 
 # Day 1
-
 d01_dat = readLines("data/d01.txt", warn = FALSE)
 
 # Day 1 Part 1 answer
@@ -15,7 +14,6 @@ R$d01$solve(d01_dat, 1)
 R$d01$solve(d01_dat, 3)
 
 # Day 2
-
 d02_dat = gsub(" ", "",readLines("data/d02.txt", warn = FALSE))
 
 opt_1 = unlist(list(
@@ -67,3 +65,12 @@ print(d04$contain)
 
 # Day 4 Part 2 answer
 print(d04$overlap)
+
+# Day 5
+d05_dat = readLines("data/d05.txt", warn = FALSE)
+
+# Day 5 Part 1 answer
+print(R$d05$solve(d05_dat, 9000))
+
+# Day 5 Part 2 answer
+print(R$d05$solve(d05_dat, 9001))
