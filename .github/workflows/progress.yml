@@ -1,7 +1,8 @@
+name: Advent of Code progress
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   update_readme:
