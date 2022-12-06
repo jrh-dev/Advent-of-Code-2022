@@ -74,3 +74,12 @@ print(R$d05$solve(d05_dat, 9000))
 
 # Day 5 Part 2 answer
 print(R$d05$solve(d05_dat, 9001))
+
+# Day 6
+d06_dat = unlist(strsplit(readLines("data/d06.txt", warn = FALSE), ""))
+
+# Day 6 Part 1 answer
+print(R$d06$solve(d06_dat, 4))
+
+# Day 6 Part 2 answer
+print(R$d06$solve(d06_dat, 14))
