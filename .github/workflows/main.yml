@@ -1,24 +1,31 @@
+name: Advent of Code progress
+
 on:
   push:
     branches:
       - master
 
-- name: Get Advent of Code progress
-  run: |
-    curl -s https://adventofcode.com/api/myprogress | jq . > progress.json
-    
-- name: Update README with Advent of Code progress
-  run: |
-    # Parse the progress file and generate a markdown list of puzzles
-    puzzles=$(jq -r '. | .years[].completed_challenges[] | "- [\(.name)](https://adventofcode.com/\(.year))"' progress.json | tr '\n' ' ')
+jobs:
+  update_readme:
+    runs-on: ubuntu-latest
 
-    # Update the README file with the list of puzzles
-    sed -i "s/YOUR_PUZZLES_HERE/$puzzles/g" README.md
-    
-  - name: Commit and push changes
-  run: |
-    git config --global user.email "github-actions@example.com"
-    git config --global user.name "GitHub Actions"
-    git add README.md
-    git commit -m "Update README with Advent of Code progress"
-    git push
+    steps:
+      - name: Get Advent of Code progress
+        run: |
+          curl -s https://adventofcode.com/api/myprogress | jq . > progress.json
+
+      - name: Update README with Advent of Code progress
+        run: |
+          # Parse the progress file and generate a markdown list of puzzles
+          puzzles=$(jq -r '. | .years[].completed_challenges[] | "- [\(.name)](https://adventofcode.com/\(.year))"' progress.json | tr '\n' ' ')
+
+          # Update the README file with the list of puzzles
+          sed -i "s/YOUR_PUZZLES_HERE/$puzzles/g" README.md
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "github-actions@example.com"
+          git config --global user.name "GitHub Actions"
+          git add README.md
+          git commit -m "Update README with Advent of Code progress"
+          git push
