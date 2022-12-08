@@ -92,3 +92,17 @@ print(R$d07$solve_p1(d07_dat))
 
 # Day 7 Part 2 answer
 print(R$d07$solve_p2(d07_dat))
+
+# Day 8
+d08_dat = readLines("data/d08.txt", warn = FALSE)
+
+x = nchar(d08_dat[1])
+y = length(d08_dat)
+
+d08_dat = as.integer(unlist(strsplit(paste0(d08_dat, collapse=""), "")))
+
+# Day 8 Part 1 answer
+R$d08$solve_p1(d08_dat, x, y)
+
+# Day 8 Part 1 answer
+R$d08$solve_p2(d08_dat, x, y)
