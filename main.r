@@ -83,3 +83,12 @@ print(R$d06$solve(d06_dat, 4))
 
 # Day 6 Part 2 answer
 print(R$d06$solve(d06_dat, 14))
+
+# Day 7
+d07_dat = readLines("data/d07.txt", warn = FALSE)
+
+# Day 7 Part 1 answer
+print(R$d07$solve_p1(d07_dat))
+
+# Day 7 Part 2 answer
+print(R$d07$solve_p2(d07_dat))
