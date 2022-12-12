@@ -112,8 +112,17 @@ d09_dat = strsplit(readLines("data/d09.txt", warn = FALSE), " ")
 
 ans = R$d09$solve(d09_dat, c(1,9))
 
-# Day 8 Part 1 answer
+# Day 9 Part 1 answer
 ans[1]
 
-# Day 8 Part 2 answer
+# Day 9 Part 2 answer
 ans[2]
+
+# Day 10
+d10_dat = strsplit(readLines("data/d10.txt", warn = FALSE), " ")
+
+# Day 10 Part 1 answer
+R$d10$solve_p1(d10_dat, c(20, 60, 100, 140, 180, 220))
+
+# Day 10 Part 2 answer
+R$d10$solve_p2(d10_dat)
