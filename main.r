@@ -104,5 +104,16 @@ d08_dat = as.integer(unlist(strsplit(paste0(d08_dat, collapse=""), "")))
 # Day 8 Part 1 answer
 R$d08$solve_p1(d08_dat, x, y)
 
-# Day 8 Part 1 answer
+# Day 8 Part 2 answer
 R$d08$solve_p2(d08_dat, x, y)
+
+# Day 9
+d09_dat = strsplit(readLines("data/d09.txt", warn = FALSE), " ")
+
+ans = R$d09$solve(d09_dat, c(1,9))
+
+# Day 8 Part 1 answer
+ans[1]
+
+# Day 8 Part 2 answer
+ans[2]

@@ -3,6 +3,8 @@
 
 This year I am aiming to write solutions in R and python.
 
+Currently running a little behind, who would of thought December would be a busy month! Will try to catch up this week. Typically going to focus on R solutions, but may switch to python later on for the more challenging puzzles.
+
 ## R
 I'm utilising my new favourite framework, the [***box***](https://github.com/klmr/box) package, to structure my R code. Modules for solving each puzzle reside within the `R` directory and the `main.r` script is ran to generate the answers for each day.
 
@@ -12,7 +14,7 @@ Box provides a mechanism for "writing reusable, composable and modular R code", 
 Python solutions are written as self contained scripts and can be found in the `python` directory.
 
 ## Current Stars Earned
-Total :star:'s = ***16***
+Total :star:'s = ***18***
 
 | Puzzle | Python | R |
 |--------|--------|---|
@@ -24,7 +26,7 @@ Total :star:'s = ***16***
 | Day 6 | :star::star: | :star::star: |
 | Day 7 | :star::star: | :star::star: |
 | Day 8 | :star::star: | :star::star: |
-| Day 9 |  |  | 
+| Day 9 | :star::star: | :star::star: |
 | Day 10 |  |  |
 | Day 11 |  |  | 
 | Day 12 |  |  | 
