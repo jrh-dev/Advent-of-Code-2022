@@ -126,3 +126,15 @@ R$d10$solve_p1(d10_dat, c(20, 60, 100, 140, 180, 220))
 
 # Day 10 Part 2 answer
 R$d10$solve_p2(d10_dat)
+
+# Day 11
+d11_dat = readLines("data/d11.txt", warn = FALSE)
+
+d11_dat = R$d11$parse_input(d11_dat)
+
+# Day 11 Part 1 answer
+R$d11$solve(q=d11_dat,y=3,mod=FALSE,to=20)
+
+# Day 11 Part 2 answer
+R$d11$solve(q=d11_dat,y=1,mod=TRUE,to=10000)
+
