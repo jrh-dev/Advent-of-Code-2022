@@ -138,3 +138,12 @@ R$d11$solve(q=d11_dat,y=3,mod=FALSE,to=20)
 # Day 11 Part 2 answer
 R$d11$solve(q=d11_dat,y=1,mod=TRUE,to=10000)
 
+# Day 12
+d12_dat = readLines("data/d12.txt", warn = FALSE)
+
+# Day 12 Part 1 answer
+R$d12$solve(R$d12$parse_input(d12_dat, FALSE), 27)
+
+# Day 12 Part 2 answer
+R$d12$solve(R$d12$parse_input(d12_dat, TRUE), 26)
+
