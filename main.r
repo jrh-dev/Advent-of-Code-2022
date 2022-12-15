@@ -147,3 +147,11 @@ R$d12$solve(R$d12$parse_input(d12_dat, FALSE), 27)
 # Day 12 Part 2 answer
 R$d12$solve(R$d12$parse_input(d12_dat, TRUE), 26)
 
+# Day 13
+d13_dat = readLines("data/d13.txt", warn = FALSE)
+
+# Day 13 Part 1 answer
+R$d13$solve_p1(d13_dat)
+
+# Day 13 Part 2 answer
+R$d13$solve_p2(d13_dat)
