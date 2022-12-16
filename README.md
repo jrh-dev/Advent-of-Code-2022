@@ -15,7 +15,7 @@ Box provides a mechanism for "writing reusable, composable and modular R code", 
 Python solutions are written as self contained scripts and can be found in the `python` directory.
 
 ## Current Stars Earned
-Total :star:'s = ***24***
+Total :star:'s = ***28***
 
 | Puzzle | Python | R |
 |--------|--------|---|
@@ -32,7 +32,7 @@ Total :star:'s = ***24***
 | Day 11 | | :star::star: |
 | Day 12 | | :star::star: |
 | Day 13 | | :star::star: |
-| Day 14 |  |  | 
+| Day 14 | | :star::star: |
 | Day 15 |  |  | 
 | Day 16 |  |  | 
 | Day 17 |  |  | 
