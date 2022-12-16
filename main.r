@@ -155,3 +155,13 @@ R$d13$solve_p1(d13_dat)
 
 # Day 13 Part 2 answer
 R$d13$solve_p2(d13_dat)
+
+# Day 14
+d14_dat = readLines("data/d14.txt", warn = FALSE)
+
+# Day 14 Part 1 answer
+R$d14$solve(d14_dat, FALSE, "!any(m[y:nrow(m),x] != \".\")")
+
+# Day 14 Part 2 answer
+#' NOTE: very slow, needs optimisation
+R$d14$solve(input=d14_dat, box=TRUE, break_state="all(m[1,499:501] == \"o\")") + 1
