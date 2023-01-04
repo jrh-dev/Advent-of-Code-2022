@@ -174,3 +174,14 @@ R$d15$solve_p1(d15_dat, 2000000)
 
 # Day 15 Part 2 answer
 R$d15$solve_p2(d15_dat, 4000000)
+
+# Day 16
+
+#' Credit to https://github.com/plannapus/Advent_of_Code for inspiring me to
+#'  use recursion, I was having a nightmare with queues before trying this
+#'  approach.
+d16_dat = readLines("data/d16.txt", warn = FALSE)
+
+R$d16$solve_p1(d16_dat)
+
+R$d16$solve_p2(d16_dat)
