@@ -80,6 +80,8 @@ solve_p2 = function(input) {
   return(do.call(rbind, sp))
 }
 
+#' Credit to https://github.com/plannapus/Advent_of_Code for inspiring me to
+#'  use recursion
 ._open_vlvs = function(cv, t, vlvs, dist, fr, rel) {
   res = list()
   from = cv[length(cv)]
