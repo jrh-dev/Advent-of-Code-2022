@@ -20,14 +20,17 @@ class Knots:
         y = 0
         for mv in input:
             direction, distance = mv
-            for _ in range(0, distance):
-                if direction == 'R':
+            if direction == 'R':
+                for _ in range(0, distance):
                     x += 1
-                elif direction == 'L':
+            elif direction == 'L':
+                for _ in range(0, distance):
                     x -= 1
-                elif direction == 'U':
+            elif direction == 'U':
+                for _ in range(0, distance):
                     y += 1
-                elif direction == 'D':
+            elif direction == 'D':
+                for _ in range(0, distance):
                     y -= 1
                 res.append((x, y))
         return res
@@ -38,7 +41,7 @@ class Knots:
         at any given point in time.
         """
         knots = []
-        for i in range(0, n_knots):
+        for _ in range(0, n_knots):
             knot = [(0, 0)]
             for position in head:
                 tail_x, tail_y = knot[len(knot)-1]
