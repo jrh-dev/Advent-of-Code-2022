@@ -4,13 +4,13 @@ class Knots:
     Solve day 9 Aoc 2022
     """
 
-    def __init__(self, input: list[set(str, int)], n_knots: int):
+    def __init__(self, input: list[set], n_knots: int):
         self.input = input
         self.n_knots = n_knots
         self.hpos = self.first_head(input=self.input)
         self.knot_pos = self.get_knots(n_knots=self.n_knots, head=self.hpos)
 
-    def first_head(self, input: list[set(str, int)]) -> list[set(int, int)]:
+    def first_head(self, input: list[set]) -> list[set]:
         """
         Record the 2 dimensional position of the 'head' of the rope
         at any given point in time.
@@ -23,16 +23,16 @@ class Knots:
             for _ in range(0, distance):
                 if direction == 'R':
                     x += 1
-                if direction == 'L':
+                elif direction == 'L':
                     x -= 1
-                if direction == 'U':
+                elif direction == 'U':
                     y += 1
-                if direction == 'D':
+                elif direction == 'D':
                     y -= 1
                 res.append((x, y))
         return res
 
-    def get_knots(self, n_knots: int, head: list[set(int, int)]) -> list[set(int, int)]:
+    def get_knots(self, n_knots: int, head: list[set]) -> list[set]:
         """
         Record the 2 dimensional position of any 'knot' in the rope
         at any given point in time.
@@ -61,6 +61,9 @@ class Knots:
             head = knots[len(knots)-1]
         return knots
 
+
+with open("data/d09.txt") as f:
+    input = f.read().split("\n")
 
 dat = []
 
