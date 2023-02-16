@@ -20,17 +20,14 @@ class Knots:
         y = 0
         for mv in input:
             direction, distance = mv
-            if direction == 'R':
-                for _ in range(0, distance):
+            for _ in range(0, distance):
+                if direction == 'R':
                     x += 1
-            elif direction == 'L':
-                for _ in range(0, distance):
+                elif direction == 'L':
                     x -= 1
-            elif direction == 'U':
-                for _ in range(0, distance):
+                elif direction == 'U':
                     y += 1
-            elif direction == 'D':
-                for _ in range(0, distance):
+                elif direction == 'D':
                     y -= 1
                 res.append((x, y))
         return res
