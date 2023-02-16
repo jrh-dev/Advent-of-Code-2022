@@ -4,13 +4,13 @@ class Knots:
     Solve day 9 Aoc 2022
     """
 
-    def __init__(self, input: list[set], n_knots: int):
+    def __init__(self, input: list[tuple[str, int]], n_knots: int):
         self.input = input
         self.n_knots = n_knots
         self.hpos = self.first_head(input=self.input)
         self.knot_pos = self.get_knots(n_knots=self.n_knots, head=self.hpos)
 
-    def first_head(self, input: list[set]) -> list[set]:
+    def first_head(self, input: list[tuple[int, int]]) -> list[tuple[int, int]]:
         """
         Record the 2 dimensional position of the 'head' of the rope
         at any given point in time.
@@ -32,7 +32,7 @@ class Knots:
                 res.append((x, y))
         return res
 
-    def get_knots(self, n_knots: int, head: list[set]) -> list[set]:
+    def get_knots(self, n_knots: int, head: list[tuple[int, int]]) -> list[tuple[int, int]]:
         """
         Record the 2 dimensional position of any 'knot' in the rope
         at any given point in time.
