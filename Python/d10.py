@@ -67,6 +67,8 @@ with open("data/d10.txt") as f:
 
 crt = CathodeRayTube(input, [20, 60, 100, 140, 180, 220])
 
+# Part 1 Answer
 crt.part_1()
 
+# Part 2 Answer
 crt.part_2()
