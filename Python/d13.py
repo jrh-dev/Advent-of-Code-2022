@@ -2,6 +2,7 @@ from itertools import zip_longest
 from math import prod
 from collections.abc import Iterator
 
+
 class Decoder:
     """
     Class to handle decoding of Elvish distress signal.
@@ -42,7 +43,7 @@ class Decoder:
     def _get_index(self, input: Iterator[list, list], divider: list, offset: int) -> int:
         """
         get the index (from 1 not 0) of a divider packer
-        """        
+        """
         index = 0 + offset
         for a, b in input:
             index += (max(self.compare(a, divider), 0) +
