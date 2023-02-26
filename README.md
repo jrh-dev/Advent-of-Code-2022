@@ -34,7 +34,7 @@ Total :star:'s = ***32***
 | Day 11 | :star::star: | :star::star: |
 | Day 12 | :star::star: | :star::star: |
 | Day 13 | :star::star: | :star::star: |
-| Day 14 | | :star::star: |
+| Day 14 | :star::star: | :star::star: |
 | Day 15 | | :star::star: |
 | Day 16 | | :star::star: |
 | Day 17 |  |  | 
