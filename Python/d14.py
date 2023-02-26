@@ -1,99 +1,92 @@
 import numpy as np
-
-with open('eed14.txt') as f:
-    input = f.read().split('\n')
+import pandas as pd
 
 
-rock_coord = []
-max_y = 0
-max_x = 0
+def cave_scan(input: list[str]) -> np.array:
+    rock_coord = []
+    max_y = 0
+    max_x = 0
 
-for inp in input:
-    #print(inp)
-    inp = inp.split('->')
-    inp = [e.strip().split(',') for e in inp]
-    for i in range(0, len(inp)-1):
-        sy, sx, fy, fx = [int(e) for e in inp[i] + inp[i+1]]
-        #print(sy, sx, fy, fx)
-        max_y = max(max_y, sy, fy)
-        max_x = max(max_x, sx, fx)
-        rock_coord.append((sy, sx))
-        rock_coord.append((fy, fx))
+    for inp in input:
+        inp = inp.split('->')
+        inp = [e.strip().split(',') for e in inp]
+        for i in range(0, len(inp)-1):
+            sx, sy, fx, fy = [int(e) for e in inp[i] + inp[i+1]]
+            max_y = max(max_y, sy, fy)
+            max_x = max(max_x, sx, fx)
+            rock_coord.append((sy, sx))
+            rock_coord.append((fy, fx))
 
-        if sy == fy:
-            for n in range(min(sx,fx)+1, max(sx,fx)):
-                print(n)
-                rock_coord.append((sy, n))
-        else: 
-            for n in range(min(sy,fy)+1, max(sy,fy)):
-                print(n)
-                rock_coord.append((n, sx))
+            if sy == fy:
+                for n in range(min(sx, fx)+1, max(sx, fx)):
+                    rock_coord.append((sy, n))
+            else:
+                for n in range(min(sy, fy)+1, max(sy, fy)):
+                    rock_coord.append((n, sx))
 
-grid = np.zeros((max_y + 2, max_x + 2))
+    grid = np.zeros((max_y + 3, max_x + max_y + 3))
 
-for coord in rock_coord:
-    grid[coord[0],coord[1]] = 99
+    for coord in rock_coord:
+        grid[coord[0], coord[1]] = 99
 
+    grid[max_y + 2, :] = 99
 
-
-def down(y, x, grid, void):
-    y += 1
-    if y == void:
-        return 3 # 3 fell into void
-    elif grid[y,x] == 0:
-        return 2 # can move down
-    else:
-        return 1 # can't move down
-
-def left(y, x, grid, void):
-    y += 1
-    x -= 1
-    if (y == void) and (grid[y-1,x] == 0):
-        return 3 # fell into void
-    elif (grid[y,x] == 0) and (grid[y-1,x] == 0):
-        return 2 # can move left
-    else:
-        return 1 # can't move left
-
-def left(y, x, grid, void):
-    y += 1
-    x += 1
-    if (y == void) and (grid[y-1,x] == 0):
-        return 3 # fell into void
-    elif (grid[y,x] == 0) and (grid[y-1,x] == 0):
-        return 2 # can move left
-    else:
-        return 1 # can't move left
+    return grid
 
 
-void = max_y + 2
-run = True
-sand = 0
+def sand_flow(grid: np.array, drop_x: int) -> tuple[int, int]:
+    drop_x = 500
+    drop_y = 0
+    max_y = grid.shape[0] - 2
+    x = drop_x
+    y = drop_y
+    sand = 0
+    run = True
+    p1_ans = 0
+    p2_ans = 0
 
-y=3
-x=0
+    while run:
 
-free = True
+        curr = (y, x)
+        if grid[y+1, x] == 0:
+            y += 1
+        elif grid[y+1, x-1] == 0:
+            y += 1
+            x -= 1
+        elif grid[y+1, x+1] == 0:
+            y += 1
+            x += 1
+
+        if (y == max_y) and (p1_ans == 0):
+            p1_ans = sand
+            grid[y, x] = 1
+            sand += 1
+            y = drop_y
+            x = drop_x
+        elif curr == (y, x):
+            grid[y, x] = 1
+            sand += 1
+            y = drop_y
+            x = drop_x
+
+        if grid[drop_y, drop_x] == 1:
+            p2_ans = sand
+            run = False
+
+    return p1_ans, p2_ans
 
 
-while free and run:
-    sand += 1
-    down_status = down(y,x,grid,void)
-    if down_status == 3:
-        run = False
-        break
-    elif down_status == 2:
-    down_status = down(y,x,grid,void)
-    if down_status == 3:
-        run = False
-        break
+if __name__ == '__main__':
 
+    with open('data/d14.txt') as f:
+        input = f.read().split('\n')
 
+    grid = cave_scan(input)
 
+    ans = sand_flow(grid, 500)
 
+    # Part 1 Answer
+    print(ans[0])
 
-
-
-
-
-
+    # Part 2 Answer
+    print(ans[1])
