@@ -1,5 +1,5 @@
-import re
 from typing import Generator
+
 
 class SensorNet:
 
@@ -30,10 +30,10 @@ class SensorNet:
         """Check if x is within range of a and b."""
         return x >= a and x <= b or x >= b and x <= a
 
-    def diff(self, a: int, b:int) -> int:
+    def diff(self, a: int, b: int) -> int:
         """Return the absolute difference between a and b."""
         return abs(a - b)
-    
+
     def solve_p1(self, tar_row: int) -> int:
         """
         Solve part 1 of the problem; find the number of points
@@ -47,7 +47,7 @@ class SensorNet:
         not_here = set()
         beacons = set()
 
-        for b, s, d in coords: # b = beacon, s = scanner, d = distance
+        for b, s, d in coords:  # b = beacon, s = scanner, d = distance
             if s[1] == tar_row:
                 beacons.add(s[0])
 
@@ -62,14 +62,13 @@ class SensorNet:
                 continue
 
         return len(not_here)
-    
-    
-    def md(p: int, q: int) -> int:
+
+    def md(self, p: int, q: int) -> int:
         """
         Manhattan distance between two points.
         """
         return abs(p[0]-q[0])+abs(p[1]-q[1])
-    
+
     def solve_p2(self, bound: int) -> int:
         """
         Solve part 2 of the problem; find the location of the
@@ -83,8 +82,8 @@ class SensorNet:
         """
         coords = [c for c in self.get_coords(self.input)]
 
-        aco = bco = set() # sets to collect coefficients
-        for beacon, _, d  in coords:
+        aco = bco = set()  # sets to collect coefficients
+        for beacon, _, d in coords:
             x, y = beacon
             aco.add(y-x+d+1)
             aco.add(y-x-d-1)
@@ -93,15 +92,10 @@ class SensorNet:
 
         for a in aco:
             for b in bco:
-                p = ((b-a)//2, (a+b)//2) # point of intersection
-                if all(0 < c < bound for c in p): # check if in bounds
-                    if all(self.md(p, c[0]) > c[2] for c in coords): # check if in range
-                        return(bound * p[0] + p[1])
-
-
-
-
-
+                p = ((b-a)//2, (a+b)//2)  # point of intersection
+                if all(0 < c < bound for c in p):  # check if in bounds
+                    if all(self.md(p, c[0]) > c[2] for c in coords):  # check if in range
+                        return (bound * p[0] + p[1])
 
 
 if __name__ == '__main__':
@@ -110,10 +104,9 @@ if __name__ == '__main__':
         input = f.read().split('\n')
 
     sensor_net = SensorNet(input)
-    
+
     # Part 1 Answer
     print(sensor_net.solve_p1(2_000_000))
 
     # Part 2 Answer
     print(sensor_net.solve_p2(4_000_000))
-
