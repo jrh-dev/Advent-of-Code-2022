@@ -34,6 +34,7 @@ def tower_height(shapes: list[list[int]], jets: str, n_drops) -> int:
     shp_pos = shapes[j % len(shapes)]
     grid_rows = req_rows(shp_pos, placed)
     states = []
+    last_height = 0
 
     while dropped < n_drops:
         jet = jets[i % len(jets)]
@@ -61,12 +62,56 @@ def tower_height(shapes: list[list[int]], jets: str, n_drops) -> int:
 
             "".join([f"{r}{c}" for r, c in placed if r <= 10])
 
-            states.append((max(set([x for x, _ in placed])) - min(set([x for x, _ in placed]))) + 1)
+            new_height = (
+                max(set([x for x, _ in placed])) - min(set([x for x, _ in placed]))
+            ) + 1
+
+            states.append(
+                (
+                    new_height - last_height,
+                    j % len(shapes),
+                    jets[i % len(jets)],
+                )
+            )
+
+            last_height = new_height
 
     height = (max(set([x for x, _ in placed])) - min(set([x for x, _ in placed]))) + 1
 
     return (height, states)
 
+def height_at_n_drops(n, start_at, search_drops):
+
+    _, pattern = tower_height(shapes, jets, search_drops)
+
+    h = [hash(x) for x in pattern]
+
+    search_pattern = h[start_at : start_at + 50]
+    found = []
+    i = 0
+    while i < len(h):
+        if h[i : i + len(search_pattern)] == search_pattern:
+            found.append(i)
+            i += 1
+        else:
+            i += 1
+
+    if len(found) > 2:
+        pattern_len = found[2] - found[1]
+        pattern_height = sum([h for h, _, _ in pattern[found[1] : found[2]]])
+    else:
+        raise Exception("Pattern not found, try increasing search_drops")
+
+    
+    full = (n - start_at) // pattern_len
+    part = (n - start_at) % pattern_len
+    height_at_pattern_start = sum([h for h, _, _ in pattern[0:start_at-1]])
+
+    return(
+        sum([h for h, _, _ in pattern[start_at : start_at + part]])
+        + full * pattern_height
+        + height_at_pattern_start
+    )
 
 # shapes
 shapes = [
@@ -79,8 +124,15 @@ shapes = [
 
 jets = ">>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>"
 
-with open("data/d17.txt", "r") as file:
-    jets = file.read()
 
-height, pattern = tower_height(shapes, jets, 2022)
+if __name__ == "__main__":
+    with open("data/d17.txt", "r") as file:
+        jets = file.read()
 
+    height, _ = tower_height(shapes, jets, 2022)
+
+    # Part 1 answer
+    print(height)
+
+    # Part 2 answer
+    height_at_n_drops(1000000000000, 300, 4000)
