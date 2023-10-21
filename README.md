@@ -38,7 +38,7 @@ Total :star:'s = ***34***
 | Day 15 | :star::star: | :star::star: |
 | Day 16 | | :star::star: |
 | Day 17 | :star: :star: | :star:  | 
-| Day 18 |  |  |
+| Day 18 | :star: |  |
 | Day 19 |  |  |
 | Day 20 |  |  |
 | Day 21 |  |  |
